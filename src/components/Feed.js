@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "../css/Feed.css";
 import Post from "./Post.js";
-import UserAvatar from "../naimat.jpg";
 import CreateIcon from "@mui/icons-material/Create";
 import InputOption from "./InputOption";
 import ImageIcon from "@mui/icons-material/Image";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import { CalendarViewDay } from "@mui/icons-material";
-import { db } from "./FirebaseConnection";
+import { db } from "../firebase";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import { selectUser } from "../features/userSlice";
+import { useSelector } from "react-redux";
+import FlipMove from "react-flip-move";
 
 function Feed() {
+	const user = useSelector(selectUser);
+
 	const [input, setInput] = useState("");
 	const [posts, setPosts] = useState([]);
 
@@ -34,10 +38,10 @@ function Feed() {
 		event.preventDefault();
 
 		db.collection("posts").add({
-			name: "Naimat Ullah",
-			description: "26 May 2022",
+			name: user.displayName,
+			description: user.email,
 			message: input,
-			photoUrl: UserAvatar,
+			photoUrl: user.photoUrl || "",
 			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 		});
 
@@ -62,7 +66,12 @@ function Feed() {
 					</form>
 				</div>
 				<div className="feed__inputOptions">
-					<InputOption title={"Photo"} Icon={ImageIcon} color={"#7085f9"} />
+					<InputOption
+						title={"Photo"}
+						Icon={ImageIcon}
+						color={"#7085f9"}
+						type="file"
+					/>
 					<InputOption
 						title={"Video"}
 						Icon={SubscriptionsIcon}
@@ -76,17 +85,17 @@ function Feed() {
 					/>
 				</div>
 			</div>
-
-			{posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-				<Post
-					key={id}
-					name={name}
-					description={description}
-					message={message}
-					photoUrl={photoUrl}
-				/>
-			))}
-
+			<FlipMove>
+				{posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+					<Post
+						key={id}
+						name={name}
+						description={description}
+						message={message}
+						photoUrl={photoUrl}
+					/>
+				))}
+			</FlipMove>
 			{/* <Post
 				name={"Naimat Ullah"}
 				description={"this is test disctiption"}

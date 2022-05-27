@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-	user: null,
-};
-
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
@@ -12,7 +8,9 @@ const initialState = {
 
 export const userSlice = createSlice({
 	name: "user",
-	initialState,
+	initialState: {
+		user: null,
+	},
 	// The `reducers` field lets us define reducers and generate associated actions
 	reducers: {
 		login: (state, action) => {
@@ -20,7 +18,7 @@ export const userSlice = createSlice({
 			// doesn't actually mutate the state because it uses the Immer library,
 			// which detects changes to a "draft state" and produces a brand new
 			// immutable state based off those changes
-			state.value = action.payload;
+			state.user = action.payload;
 		},
 		// Use the PayloadAction type to declare the contents of `action.payload`
 		logout: (state) => {

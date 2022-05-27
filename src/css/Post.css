@@ -27,6 +27,8 @@
 
 .post__body {
 	overflow-wrap: anywhere;
+	padding: 5px;
+	border-bottom: 1px solid #99999972;
 }
 
 .post__buttons {
@@ -37,4 +39,10 @@
 
 .post__buttons > * {
 	padding: 15px 40px !important;
+}
+
+.post__sharedImage {
+	margin-top: 10px;
+	height: 450px;
+	object-fit: cover;
 }

@@ -1,0 +1,131 @@
+.widegts {
+	flex: 0.3;
+}
+
+.widegts__feed {
+	border: 1px solid lightgray;
+	border-radius: 10px;
+	background-color: #fff;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.widegts__top {
+	display: flex;
+	justify-content: space-between;
+}
+.widegts__top img {
+	opacity: 70%;
+}
+.widegts__top > p {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.recommednation {
+	display: flex;
+	gap: 10px;
+	cursor: pointer;
+}
+
+.recommednation h4 {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.recommednation p {
+	font-size: 12px;
+	color: gray;
+	margin-bottom: 10px;
+}
+
+.recommednation button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5px 10px;
+	font-size: 14px;
+	gap: 5px;
+	border-radius: 50px;
+	border: 1px solid gray;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.recommednation button:hover {
+	background-color: whitesmoke;
+}
+
+.widegts__feed a:link,
+.widegts__feed a:visited {
+	text-decoration: none;
+	color: #444;
+	font-size: 16px;
+	padding: 5px;
+}
+
+.widegts__feed a:hover,
+.widegts__feed a:active {
+	background-color: whitesmoke;
+}
+.widgets__bottom {
+	position: sticky;
+	top: 80px;
+}
+.app__footer {
+	margin-top: 10px;
+}
+
+.topJobs {
+	margin-top: 20px;
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+.topJobs > img {
+	width: 100%;
+	object-fit: cover;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.app__footer ul {
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+.app__footer ul li {
+	list-style: none;
+}
+
+.app__footer ul li a {
+	text-decoration: none;
+	color: gray;
+	font-size: 14px;
+}
+
+.app__footer ul li a:hover {
+	text-decoration: underline;
+	color: #0a66c2;
+}
+
+.copyright {
+	margin-top: 10px;
+	font-size: 16px;
+	text-align: center;
+}
+
+.copyright img {
+	width: 100%;
+	height: 40px;
+	object-fit: contain;
+}
+
+.copyright p span {
+	font-size: 18px;
+	color: #0a66c2;
+	display: inline-block;
+}
